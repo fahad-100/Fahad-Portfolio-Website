@@ -43,11 +43,11 @@ This website serves as a digital resume and creative space where I share:
 ### 🏠 Home Page
 ![Home](screenshots/Home-sec-ss.png)
 
-### 🍽️ About Section
+### 🧾 About Section
 ![About](screenshots/About-sec-ss.png)
 
 ### 🧾 Experience Section
-![Experience](screenshots/Experience-sec-ss.png-sec-ss.png)
+![Experience](screenshots/Experience-sec-ss)
 
 ### 🧾 Projects Section
 ![Projects](screenshots/Projects-sec-ss.png)
