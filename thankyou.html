@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Thank You</title>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/icons/logo.main.png">
+    <!--Css link-->
+    <link rel="stylesheet" href="css/thankyou.css"/>
+  </head>
+ <body>
+
+  <div class="thankyou-wrapper">
+    <!-- Header -->
+    <header class="top-header">
+      <h1 class="logo" style="font-weight: 700; font-size: 2.2rem; letter-spacing: 1px;">
+        <span style="color: #24aac2;">Fahad</span> <span style="color: #fff;">Portfolio</span>
+      </h1>
+      <a href="#contact" class="enquiry-btn">Make an Enquiry</a>
+    </header>
+
+    <!-- Thank You Message -->
+    <section class="thankyou-section animate-up">
+      <div class="message">
+        <h2><span class="highlight">Thank you</span> for contacting us!</h2>
+        <p>
+          We've received your message and will be in touch shortly. For urgent
+          inquiries, feel free to call us directly.
+        </p>
+        <a href="index.html" class="back-home-btn">Back to Home</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="thankyou-footer animate-up">
+      <div class="footer-top">
+        <h2>Stay Connected</h2>
+        <p>Subscribe to get the latest updates and offers.</p>
+
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+
+        <small>
+          By subscribing, you agree to our <a href="#">Privacy Policy</a>.
+        </small>
+      </div>
+
+      <div class="footer-links">
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="rating-section animate-up">
+          <h3>Rate Your Experience</h3>
+           <div class="stars" id="star-rating">
+           <span class="star" data-value="1">&#9733;</span>
+           <span class="star" data-value="2">&#9733;</span>
+           <span class="star" data-value="3">&#9733;</span>
+           <span class="star" data-value="4">&#9733;</span>
+           <span class="star" data-value="5">&#9733;</span>
+          </div>
+         <p class="rating-text" id="rating-text">Click to rate</p>
+        </div>
+ 
+        <div>
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#terms">Terms</a></li>
+            <li><a href="#privacy">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Muhammad Fahad</p>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.animate-up').forEach(el => {
+      observer.observe(el);
+    });
+
+   // Rating Section JS 
+   const stars = document.querySelectorAll('.star');
+   const ratingText = document.getElementById('rating-text');
+   let selectedRating = 0;
+
+   stars.forEach(star => {
+    // Hover effect
+    star.addEventListener('mouseover', () => {
+      const value = parseInt(star.getAttribute('data-value'));
+      highlightStars(value);
+    });
+
+    // Reset on mouseout
+    star.addEventListener('mouseout', () => {
+      highlightStars(selectedRating);
+    });
+
+    // On click
+    star.addEventListener('click', () => {
+      selectedRating = parseInt(star.getAttribute('data-value'));
+      highlightStars(selectedRating);
+      ratingText.textContent = `You rated us ${selectedRating} star${selectedRating > 1 ? 's' : ''}`;
+    });
+   });
+
+   function highlightStars(rating) {
+    stars.forEach(star => {
+      const value = parseInt(star.getAttribute('data-value'));
+      star.classList.toggle('selected', value <= rating);
+    });
+   }
+  </script>
+  
+</body>
+</html>
